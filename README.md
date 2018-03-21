@@ -1,13 +1,14 @@
-### No longer maintained, use [ins-burst] (https://github.com/yv1/ins-berst) instead
+[ins-burst]
+https://twitter.com/_cx 
 
 # Usage.
-python instagram.py  [Username]  [wordlist]
+python instagram.py  [Username]  [wordlist.txt]
 
-`python instagram.py username103 pass.lst`
+`python instagram.py USER pass.lst`
 
 ## Requirements
-[mechanize] ==> (https://pypi.python.org/pypi/mechanize/) install with: " pip install mechanize "
+[mechanize] ==> (https://pypi.python.org/pypi/mechanize/) install with: ` pip install mechanize `
 
-[requests]  ==> (https://pypi.python.org/pypi/requests/2.18.4) install with: " pip install requests "
+[requests]  ==> (https://pypi.python.org/pypi/requests/2.18.4) install with: ` pip install requests `
 
-[Tor]  =======> (https://www.torproject.org/docs/debian) install with: " sudo apt-get install tor "
+[Tor]  =======> (https://www.torproject.org/docs/debian) install with: ` sudo apt-get install tor `
